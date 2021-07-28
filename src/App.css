@@ -80,3 +80,6 @@ h1 {
   padding: 1em;
 }
 
+label {
+  margin-bottom: .5em;
+}

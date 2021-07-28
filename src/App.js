@@ -4,8 +4,10 @@ import React, { useState } from 'react';
 import Home from './components/Home';
 import MalletList from './components/MalletList';
 import Navigation from './components/Navigation';
-import LoginForm from './components/LoginForm';
+import Login from './components/Login';
 import { BrowserRouter as Router, Switch, Route } from 'react-router-dom';
+import Dashboard from './components/Dashboard';
+import ProtectedRoute from './components/PrivateRoute';
 
 function App() {
   const [userinfo, setUserInfo] = useState({
@@ -13,6 +15,8 @@ function App() {
     username: '',
     name: ''
   })
+
+  const Protected = () => <h3>Protected</h3>
 
     return (
       <div className="App">
@@ -26,8 +30,9 @@ function App() {
             <MalletList />
           </Route>
           <Route path='/login'>
-            <LoginForm />
+            <Login />
           </Route>
+          <ProtectedRoute exact path='/dashboard' component={Dashboard}/>
         </Switch>
           
         </Router>

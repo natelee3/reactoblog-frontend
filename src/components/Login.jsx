@@ -1,14 +1,13 @@
 import React, { useState, useEffect } from 'react';
 import Home from './Home';
 
-const LoginForm = (props) => {
+const Login = (props) => {
     const [username, setUsername] = useState('');
     const [password, setPassword] = useState('');
     const [isLoggedIn, setIsLoggedIn] = useState(false)
 
     const _submitForm = async (e) => {
         e.preventDefault();
-        const credentials = { username, password };
         const requestOptions = {
             method: 'POST',
             headers: {'Content-Type': 'application/json'},
@@ -71,4 +70,4 @@ const LoginForm = (props) => {
     
 }
 
-export default LoginForm;
+export default Login;
