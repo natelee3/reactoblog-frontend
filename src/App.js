@@ -9,15 +9,13 @@ import { BrowserRouter as Router, Switch, Route } from 'react-router-dom';
 import Dashboard from './components/Dashboard';
 import ProtectedRoute from './components/PrivateRoute';
 
-function App() {
-  const [userinfo, setUserInfo] = useState({
-    isLoggedIn: false,
-    username: '',
-    name: ''
-  })
+class App extends React.Component {
+  
+  componentDidMount() {
+    const isLoggedIn = localStorage.getItem('isLoggedIn')
+  }
 
-  const Protected = () => <h3>Protected</h3>
-
+  render() {
     return (
       <div className="App">
         <Router >
@@ -39,7 +37,7 @@ function App() {
        
       </div>
     );
-  
+  }
   
 }
 

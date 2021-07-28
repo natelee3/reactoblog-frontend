@@ -7,14 +7,19 @@ class Home extends React.Component {
         super(props);
         this.state = {
             malletsData: [],
-            isLoggedIn: props.isLoggedIn
+            // isLoggedIn: localStorage.getItem('isLoggedIn')
         }
     }
+
+    // _login() {
+    //     console.log('clicked')
+    //     localStorage.setItem('isLoggedIn', true)
+    // }
 
     render() {
         return (
             <div className='full-height'>
-                {this.state.isLoggedIn ? (
+                {(localStorage.getItem('isLoggedIn') === true) ? (
                     <h1>You are logged in!</h1>
                 ) : (
                     <h1>Welcome to Good Mallets</h1>
@@ -25,6 +30,7 @@ class Home extends React.Component {
                 <Link to='/mallets'>
                     <Button type="button">See Favorites</Button>
                 </Link>
+                {/* <button type="button" onClick={this._login}>Login</button> */}
             </div>
         )
     }

@@ -1,9 +1,9 @@
 import Navbar from 'react-bootstrap/Navbar';
 import Container from 'react-bootstrap/Container';
 import Nav from 'react-bootstrap/Nav';
+import { useEffect } from 'react';
 
 const Navigation = (props) => {
-    const { is_logged_in } = props;
 
   return (
 <>
@@ -15,7 +15,11 @@ const Navigation = (props) => {
       <Nav className="me-auto">
         <Nav.Link href="/">Home</Nav.Link>
         <Nav.Link href="/mallets">Mallets</Nav.Link>
-        <Nav.Link href="/login">Login</Nav.Link>
+        {((!localStorage.getItem('isLoggedIn'))) ? (
+          <Nav.Link href="/login">Login</Nav.Link>
+        ) : (
+          <Nav.Link onClick={()=> localStorage.clear('isLoggedIn')}href="/">Logout</Nav.Link>
+        )}
       </Nav>
     </Navbar.Collapse>
   </Container>

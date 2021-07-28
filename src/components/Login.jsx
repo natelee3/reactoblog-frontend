@@ -19,6 +19,7 @@ const Login = (props) => {
                 console.log(data);
                 if (data.isValid === true) {
                     setIsLoggedIn(true)
+                    localStorage.setItem('isLoggedIn', true)
                 }
             })
         }
@@ -57,7 +58,7 @@ const Login = (props) => {
             </>
         ) : (
             <>
-                <Home isLoggedIn={isLoggedIn}/>
+                <Home />
             </>
         )}
         
